@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sales App</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to the Sales App</h1>
-    <a href="{{ url_for('create_sale') }}">Create a Sale</a><br>
+    <a href="{{ url_for('create_sale') }}">Create a Sale</a><br />
     <a href="{{ url_for('view_sales') }}">View Sales</a>
-</body>
+
+    <!-- Form for deleting all sales -->
+    <form action="{{ url_for('delete_all_sales') }}" method="post">
+      <button type="submit">Delete All Sales</button>
+    </form>
+  </body>
 </html>

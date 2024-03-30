@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View Sales</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Sales List</h1>
     <ul>
-        {% for sale in sales %}
-        <li>
-            <strong>Name:</strong> {{ sale.name }}<br>
-            <strong>Date:</strong> {{ sale.date }}<br>
-            <strong>URL:</strong> <a href="{{ sale.url }}">{{ sale.url }}</a><br>
-            <strong>Photographs:</strong> {{ sale.photographs }}
-        </li>
-        {% endfor %}
+      {% for sale in sales %}
+      <li>
+        <strong>Name:</strong> {{ sale.name }}<br />
+        <strong>Date:</strong> {{ sale.date }}<br />
+        <strong>URL:</strong> <a href="{{ sale.url }}">{{ sale.url }}</a><br />
+        <strong>Photograph:</strong><br />
+        {% if sale.photographs %}
+        <img
+          src="data:image/jpeg;base64,{{ sale.photographs|b64encode }}"
+          alt="Sale Photograph"
+          style="max-width: 300px"
+        /><br />
+        {% else %} No photograph available<br />
+        {% endif %}
+      </li>
+      {% endfor %}
     </ul>
-</body>
+  </body>
 </html>
